@@ -1,0 +1,24 @@
+1 QUery Test
+
+No.1
+select ID, c.Name, CountryCode, District, c.Population 
+from city c join country co on c.CountryCode=co.Code
+where CountryCode = 'IDN' limit 10;
+
+No.2
+select ID, c.Name, District, c.Population 
+from city c join country co on c.CountryCode=co.Code
+order by c.Population desc limit 10;
+
+No. 3
+select co.Code, co.Name, Language, IsOfficial, Percentage 
+from city c join country co on c.CountryCode=co.Code join countrylanguage cl on cl.CountryCode=co.Code
+where IsOfficial = 'T' and Language = 'English'
+group by co.Code
+order by Percentage desc limit 10;
+
+No.4
+select Name, Continent, LifeExpectancy, GNP 
+from country
+where Continent = 'Asia'
+order by LifeExpectancy desc limit 10;
